@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos - TeamPerico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon con emoji 🎤 -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2214%22 font-size=%2216%22>🎤</text></svg>">
+</head>
+<body>
+  <header>
+    <h1>EVENTOS 🎤</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="nominaciones.html">Nominaciones</a>
+    <a href="fundadores.html">Gestion</a>
+    <a href="galeria.html">Galeria</a> 
+  </nav>
+
+  <section>
+    <h2>Próximos eventos</h2>
+    <p>En nuestro discord oficial encontraras los eventos que se dejan aqui estara el contador para que stes atento para cada evento que se realizara.</p>
+
+    <!-- Contador regresivo -->
+    <div class="proximo-evento-container">
+      <h3>PRÓXIMO EVENTO</h3>
+      <div id="contador">
+        <span id="dias">00</span> :
+        <span id="horas">00</span> :
+        <span id="minutos">00</span> :
+        <span id="segundos">00</span>
+      </div>
+      <!-- Texto del evento que aparecerá cuando comience -->
+      <div id="texto-evento" data-mensaje="¡El evento ha comenzado: Batalla de Rap en la Playa! 🎤🔥"></div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 TeamPerico
+  </footer>
+
+  <script>
+    // Evento de ejemplo: HOY (31 de agosto de 2025 a las 22:00)
+    const fechaEvento = new Date("2025-09-20T24:00:00").getTime();
+
+    function actualizarContador() {
+      const ahora = new Date().getTime();
+      const distancia = fechaEvento - ahora;
+
+      if (distancia < 0) {
+        // Ocultar contador
+        document.getElementById("contador").style.display = "none";
+        // Mostrar mensaje del evento
+        const mensaje = document.getElementById("Evento!!").getAttribute("ns"); 
+        document.getElementById("ns").textContent = ns;
+        clearInterval(intervalo);
+        return;
+      }
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      document.getElementById("dias").textContent = String(dias).padStart(2, "0");
+      document.getElementById("horas").textContent = String(horas).padStart(2, "0");
+      document.getElementById("minutos").textContent = String(minutos).padStart(2, "0");
+      document.getElementById("segundos").textContent = String(segundos).padStart(2, "0");
+    }
+
+    const intervalo = setInterval(actualizarContador, 1000);
+    actualizarContador(); // mostrar inmediatamente
+  </script>
+</body>
+</html>

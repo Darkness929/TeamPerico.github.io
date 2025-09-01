@@ -1,0 +1,567 @@
+/* ------------------ RESET BÁSICO ------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll personalizado */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 6px;
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffda4d;
+}
+
+/* ------------------ BODY ------------------ */
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('img/graffiti.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #f5f5f5;
+  line-height: 1.6;
+  position: relative;
+  animation: fadeInBody 1.5s ease forwards;
+}
+
+/* Overlay oscuro suave */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  z-index: -1;
+  animation: fadeInOverlay 1.5s ease forwards;
+}
+
+/* ------------------ ANIMACIONES ------------------ */
+@keyframes fadeInBody { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes fadeInOverlay { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes slideDown { 0% { transform: translateY(-50px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes fadeInText { 0% { opacity: 0; transform: scale(0.95); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes fadeInNav { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInSection { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInCard { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes glowPulse { 0% { box-shadow: 0 0 10px #FFD700; } 50% { box-shadow: 0 0 25px #FFD700; } 100% { box-shadow: 0 0 10px #FFD700; } }
+
+/* ------------------ HEADER ------------------ */
+header {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(145deg, rgba(0,0,0,0.7), rgba(0,0,0,0.85));
+  border-bottom: 0.35rem solid #FFD700;
+  box-shadow: 0 0.6rem 1.2rem rgba(0,0,0,0.55);
+  animation: slideDown 1s ease forwards;
+}
+
+header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: #FFD700;
+  animation: fadeInText 1.5s ease forwards;
+  text-shadow: 0 0 10px #FFD700, 0 0 25px rgba(255,215,0,0.35);
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+/* ------------------ NAVEGACIÓN ------------------ */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  background: rgba(0,0,0,0.75);
+  padding: 1rem 0;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  border-radius: 0 0 1rem 1rem;
+  animation: fadeInNav 1.5s ease forwards;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.7rem 1.7rem;
+  background-color: #FFD700;
+  border-radius: 14px;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.4);
+}
+
+nav a:hover {
+  background: linear-gradient(135deg, #FFD700, #e6c200);
+  color: #fff;
+  transform: scale(1.08) rotate(-1deg);
+  box-shadow: 0 0.5rem 1rem rgba(255,215,0,0.5);
+}
+
+/* ------------------ SECCIONES ------------------ */
+section {
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1000px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 1.4rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.55);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSection 1s ease forwards;
+  transition: all 0.35s ease;
+}
+
+section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.7rem 1.3rem rgba(255,215,0,0.25);
+}
+
+/* ------------------ TITULOS ------------------ */
+h2 {
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #FFD700;
+  text-shadow: 0 0 8px #FFD700, 0 0 15px rgba(255,215,0,0.3);
+  letter-spacing: 1px;
+  animation: fadeInText 1.5s ease forwards;
+}
+
+/* ------------------ MIEMBROS ------------------ */
+.miembro-card {
+  background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.65));
+  border-radius: 1.4rem;
+  padding: 2rem;
+  margin: 1rem auto;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 0.6rem 1.2rem rgba(0,0,0,0.55);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInCard 1s ease forwards;
+}
+
+.miembro-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 1.2rem 1.8rem rgba(255,215,0,0.45);
+}
+
+.miembro-card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid #FFD700;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.miembro-card img:hover {
+  transform: scale(1.12) rotate(2deg);
+  box-shadow: 0 0 18px rgba(255,215,0,0.55);
+}
+
+.miembro-card h3 {
+  font-size: 1.6rem;
+  color: #FFD700;
+  margin-bottom: 0.8rem;
+}
+
+.miembro-card p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #f5f5f5;
+}
+
+/* ------------------ BOTONES ------------------ */
+.instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  background: linear-gradient(135deg, #E1306C, #C13584);
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.35);
+  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.instagram-btn img {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.6rem;
+}
+
+.instagram-btn:hover {
+  transform: scale(1.08) rotate(-2deg);
+  background: linear-gradient(135deg, #c72a5c, #9b1f4d);
+  box-shadow: 0 0.5rem 1rem rgba(255,0,50,0.45);
+}
+
+/* ------------------ CARDS ------------------ */
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 1.4rem;
+  flex: 1 1 300px;
+  box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.35);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInCard 1s ease forwards;
+  min-width: 250px;
+  margin-bottom: 1rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.9rem 1.4rem rgba(255,215,0,0.3);
+  background: rgba(255,255,255,0.15);
+}
+
+.card h3 {
+  font-size: 1.45rem;
+  color: #FFD700;
+  margin-bottom: 0.8rem;
+}
+
+.card p, .card ul {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card ul li {
+  margin-bottom: 0.4rem;
+}
+
+/* ------------------ REDES SOCIALES ------------------ */
+.social-links ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.social-links li {
+  flex: 1 1 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #FFD700;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  transition: color 0.3s ease, transform 0.35s ease, background 0.35s ease;
+  background: rgba(255,255,255,0.05);
+  border-radius: 0.7rem;
+}
+
+.social-links li a img {
+  width: 28px;
+  height: 28px;
+  margin-right: 0.5rem;
+}
+
+.social-links li a:hover {
+  color: #fff;
+  transform: scale(1.18) rotate(-2deg);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 0.5rem 1rem rgba(255,215,0,0.3);
+}
+
+/* ------------------ FOOTER ------------------ */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(0,0,0,0.75);
+  border-top: 0.35rem solid #FFD700;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  animation: fadeInSection 1s ease forwards;
+  box-shadow: 0 -0.3rem 0.7rem rgba(0,0,0,0.35);
+}
+
+footer a { color: #FFD700; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ------------------ GALERÍA ------------------ */
+.gallery-section {
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  background: rgba(0,0,0,0.7);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.gallery-item p {
+  padding: 0.6rem;
+  font-size: 1rem;
+  color: #FFD700;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1.2rem rgba(255,215,0,0.4);
+  background: rgba(255,255,255,0.07);
+}
+
+/* ------------------ ESPECIALES (EVENTOS PREMIUM) ------------------ */
+.especiales-section {
+  margin: 3rem auto;
+  max-width: 1000px;
+  padding: 2.2rem;
+  background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,140,0,0.12));
+  border-radius: 1.6rem;
+  box-shadow: 0 0.6rem 1.5rem rgba(255,215,0,0.25), 0 0.3rem 0.7rem rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeInSection 1.2s ease forwards;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.especiales-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 2rem rgba(255,215,0,0.35), 0 0.35rem 0.8rem rgba(0,0,0,0.5);
+  background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.15));
+}
+
+.especial-card {
+  background: rgba(0,0,0,0.65);
+  border-radius: 1.4rem;
+  padding: 2rem;
+  margin: 1rem auto;
+  text-align: center;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.especial-card img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.especial-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255,215,0,0.45);
+}
+
+.especial-card h3 {
+  font-size: 1.6rem;
+  color: #FFD700;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 6px #FFD700;
+}
+
+.especial-card p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.especial-btn {
+  display: inline-block;
+  padding: 0.65rem 1.3rem;
+  background: linear-gradient(135deg, #FFD700, #FF8C00);
+  color: #000;
+  font-weight: bold;
+  border-radius: 0.7rem;
+  margin-top: 0.8rem;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.35);
+}
+
+.especial-btn:hover {
+  transform: scale(1.08) rotate(-1deg);
+  background: linear-gradient(135deg, #FF8C00, #FFD700);
+  color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(255,215,0,0.35);
+}
+
+/* ------------------ CONTADOR PRÓXIMO EVENTO ------------------ */
+.proximo-evento-container {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.8rem;
+  background: rgba(0,0,0,0.75);
+  border-radius: 1.4rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.45);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInSection 1s ease forwards;
+}
+
+.proximo-evento-container h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 6px #FFD700;
+}
+
+#contador {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+#contador span {
+  background: rgba(255,215,0,0.25);
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.7rem;
+  min-width: 50px;
+  text-align: center;
+  color: #FFD700;
+  box-shadow: 0 0.15rem 0.3rem rgba(0,0,0,0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+#contador span:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0.35rem 0.7rem rgba(255,215,0,0.45);
+  background: rgba(255,215,0,0.3);
+}
+
+/* ------------------ EVENTOS ------------------ */
+.event-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.event-card {
+  background: rgba(0,0,0,0.7);
+  border-radius: 1.4rem;
+  padding: 1.8rem;
+  width: 300px;
+  box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInCard 1s ease forwards;
+}
+
+.event-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 1rem 1.6rem rgba(255,215,0,0.35);
+  background: rgba(255,255,255,0.08);
+}
+
+.event-card h3 {
+  font-size: 1.5rem;
+  color: #FFD700;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 6px #FFD700;
+}
+
+.event-card p {
+  font-size: 1rem;
+  color: #f5f5f5;
+  margin-bottom: 0.5rem;
+}
+
+.event-card a {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #FFD700, #FF8C00);
+  color: #000;
+  font-weight: bold;
+  border-radius: 0.7rem;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.event-card a:hover {
+  background: linear-gradient(135deg, #FF8C00, #FFD700);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 0.5rem 1rem rgba(255,215,0,0.35);
+}
+
+/* ------------------ RESPONSIVO ------------------ */
+@media (max-width: 800px) {
+  header h1 { font-size: 2.4rem; }
+  nav a { font-size: 1.05rem; padding: 0.6rem 1.3rem; }
+  h2 { font-size: 1.8rem; }
+  .card, .miembro-card, .especial-card { width: 100%; }
+  .card h3, .especial-card h3 { font-size: 1.35rem; }
+  .card p, .card ul, .especial-card p { font-size: 0.95rem; }
+  .cards-container { flex-direction: column; gap: 1rem; }
+  .social-links ul { flex-direction: column; align-items: center; gap: 0.8rem; }
+  .social-links li a { width: 85%; justify-content: flex-start; }
+  .miembro-card { width: 95%; padding: 1.6rem; }
+  .gallery-item img { height: 190px; }
+}
+
+@media (max-width: 500px) {
+  header h1 { font-size: 2rem; }
+  .proximo-evento-container h3 { font-size: 1.6rem; }
+  #contador { font-size: 1.3rem; }
+  #contador span { min-width: 40px; padding: 0.4rem 0.6rem; }
+  .gallery-item img { height: 150px; }
+  .especial-card img { max-height: 180px; }
+}
